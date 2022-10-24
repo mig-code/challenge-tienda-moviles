@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.scss';
 import cart from '../assets/cart.svg';
+import { AppContext } from '../context/AppContext';
 
 export default function Header() {
+    const { cartCount } = React.useContext(AppContext);
   return (
     <div className='header'>
       <div className='header__left'>
@@ -16,7 +18,7 @@ export default function Header() {
       </div>
       <div className='header__right'>
         <img className='header__cart' src={cart} alt='' />
-        <p className='header__cart-count'>3</p>
+        <p className='header__cart-count'>{cartCount}</p>
       </div>
     </div>
   );
