@@ -1,0 +1,44 @@
+@use 'variables';
+
+.header {
+  background-color: white;
+  color: variables.$color-black;
+
+  text-align: left;
+  border-bottom: 1px solid variables.$color-black;
+  margin: 1rem 0 0.5rem 0;
+  padding: 0.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: variables.$secondary-color;
+  }
+  &__breadcumbs {
+    font-size: 1rem;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 1rem;
+  }
+
+  &__cart {
+    height: 1rem;
+    width: 1rem;
+    margin-top: 0.5rem;
+  }
+  &__cart-count {
+    font-size: 1.5rem;
+    color: variables.$secondary-color;
+    margin-left: 0.5rem;
+  }
+}
