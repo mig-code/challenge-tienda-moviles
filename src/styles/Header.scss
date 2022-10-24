@@ -1,8 +1,15 @@
 @use 'variables';
 
 .header {
-  background-color: variables.$secondary-color;
-  color: #fff;
+  background-color: white;
+  color: variables.$color-black;
+
+  text-align: left;
+  border-bottom: 1px solid variables.$color-black;
+  margin: 1rem 0 0.5rem 0;
+  padding: 0.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,6 +17,8 @@
 
   &__title {
     font-size: 1.5rem;
+    font-weight: bold;
+    color: variables.$secondary-color;
   }
   &__breadcumbs {
     font-size: 1rem;
@@ -29,8 +38,7 @@
   }
   &__cart-count {
     font-size: 1.5rem;
-    color: #000;
+    color: variables.$secondary-color;
     margin-left: 0.5rem;
-   
   }
 }

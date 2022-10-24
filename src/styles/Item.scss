@@ -1,0 +1,67 @@
+@use 'variables';
+
+.mobile-box {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-evenly;
+  margin: 1rem 0;
+  padding: 1rem;
+  transition: all 0.2s ease-in-out;
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0.3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid variables.$color-black;
+  }
+
+  &:hover {
+    cursor: pointer;
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; 
+    transform: scale(1.02);
+  }
+
+  &__brand {
+    font-weight: bold;
+    display: inline;
+    background-color: variables.$secondary-color;
+    color: variables.$color-white;
+    padding: 0.2rem 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 0.3rem;
+  }
+
+  &__model {
+    display: inline;
+    font-size: 0.8rem;
+  }
+
+  &__price {
+    font-weight: bold;
+    color: variables.$color-black;
+    text-align: right;
+    font-size: 1rem;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
