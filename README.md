@@ -1,6 +1,10 @@
 # TECHNICAL CHALLENGE
 
 Esta prueba consiste en la creación de una mini-aplicación para comprar dispositivos moviles.
+
+### Current deploy
+  
+  https://tienda-moviles.netlify.app/
  #### La aplicación tendrá únicamente dos vistas:
 
     1. Vista principal - Listado de productos
