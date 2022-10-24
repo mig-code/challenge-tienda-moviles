@@ -1,0 +1,10 @@
+@use 'variables';
+
+.header{
+    background-color: variables.$secondary-color;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
