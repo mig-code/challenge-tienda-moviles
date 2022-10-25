@@ -6,6 +6,7 @@ import { AppContext } from '../context/AppContext';
 
 export default function Header() {
   const { cartCount, breadcumbName } = React.useContext(AppContext);
+
   return (
     <div className='header'>
       <div className='header__left'>

@@ -6,9 +6,7 @@ import '../styles/ProductList.scss';
 export default function ProductList() {
   const [searchQuery, setSearchQuery] = useState('');
   const { mobilesData, setBreadcumbName } = useContext(AppContext);
-  console.log(mobilesData);
   const products = mobilesData;
-
   const handleChange = event => {
     setSearchQuery(event.target.value);
   };
