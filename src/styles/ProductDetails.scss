@@ -1,28 +1,96 @@
-
 @use 'variables';
 
-.details-container{
+.details-container {
     display: flex;
     flex-direction: row;
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    animation: fadeInAnimation ease 0.5s;
+    font-size: 0.8rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.details-left__image {
+    padding: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    min-width: 250px;
+}
+
+
+.details-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: space-evenly;
-    margin: 0.5rem 0;
-    align-content: stretch;
-    animation: fadeInAnimation ease 0.5s; ;
+    width: 450px;
 
-    
+    &__properties-box {
+        padding: 1rem;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        margin: 0 0 1rem 0;
+        width: 100%;
+    }
 }
 
+.actions {
+    padding: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
-.actions__color-option, .actions__storage-option{
-    cursor: pointer;
-    background-color:variables.$secondary-color; ;
+    &__colors-box,
+    &__storage-box {
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 0.8rem;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
+
+    &__color-option,
+    &__storage-option {
+        cursor: pointer;
+        background-color: variables.$color-white;
+        border: solid 1px variables.$secondary-color;
+        color: variables.$secondary-color;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+    }
+
+    &__buttons-box {
+        margin-top: 1rem;
+    }
+
+    &__button {
+        cursor: pointer;
+        background-color: variables.$color-white;
+        border: solid 1px variables.$secondary-color;
+        color: variables.$secondary-color;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+    }
+
+    &__button:hover {
+        background-color: variables.$secondary-color;
+        color: variables.$color-white;
+        border: solid 1px variables.$secondary-color;
+    }
+
+}
+.isSelected{
+    background-color: variables.$secondary-color;
+    color: variables.$color-white;
     border: solid 1px variables.$secondary-color;
-    color:variables.$color-white;
-    margin: 1rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
 }
+
 
 
 
@@ -30,14 +98,27 @@
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
-     }
+    }
 }
 
 @media screen and (max-width: 768px) {
-    .details-container{
+    .details-container {
         flex-direction: column;
+        align-items: center;
+        gap: 0;
     }
-    
+    .details-left__image {
+       max-width: 150px;
+       height: auto;
+       margin-bottom: 1rem;
+        
+    }
+
+    .details-right {
+        width: auto;
+    }
+
 }

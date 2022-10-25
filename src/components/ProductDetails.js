@@ -10,8 +10,10 @@ export default function DetailsView(props) {
   const { cartCount, setCartCount, setBreadcumbName } = useContext(AppContext);
   const [userColor, setUserColor] = useState(1);
   const [userStorage, setUserStorage] = useState(1);
+  const [isSelected, setIsSelected] = useState(true);
 
   function handleColor(code) {
+   
     if (code === 1000) {
       setUserColor(1);
     }
@@ -39,7 +41,6 @@ export default function DetailsView(props) {
     if (code === 2003) {
       setUserStorage(4);
     }
-
   }
 
   const addItems = async () => {
@@ -68,7 +69,7 @@ export default function DetailsView(props) {
       });
   };
 
-  function getMobileData() {
+  function getMobileDetails() {
     fetch(`https://front-test-api.herokuapp.com/api/product/${mobileId}`)
       .then(response => response.json())
       .then(data => {
@@ -83,7 +84,7 @@ export default function DetailsView(props) {
   }
 
   useEffect(() => {
-    getMobileData();
+    getMobileDetails();
   }, [mobileId]);
 
   return (
@@ -102,62 +103,78 @@ export default function DetailsView(props) {
             />
           </div>
           <div className='details-right'>
-            <h1 className='details-right__model'>{mobileData.model} </h1>
-            <div className='details-right__brand'>
-              Marca: {mobileData.brand}{' '}
+            <div className='details-right__properties-box'>
+              <h1 className='details-right__model'>{mobileData.model} </h1>
+              <div className='details-right__brand'>
+                Marca: {mobileData.brand}{' '}
+              </div>
+
+              <p className='details-right__price'>
+                {' '}
+                PRECIO:{mobileData.price} €
+              </p>
+              <p className='details-right__feature'> CPU: {mobileData.cpu}</p>
+              <p className='details-right__feature'> RAM: {mobileData.ram}</p>
+              <p className='details-right__feature'> OS: {mobileData.os}</p>
+              <p className='details-right__feature'>
+                Resolución: {mobileData.displayResolution}
+              </p>
+              <p className='details-right__feature'>
+                Batería: {mobileData.battery}
+              </p>
+              <p className='details-right__feature'>
+                Cámara Principal: {mobileData.primaryCamera[0]}
+              </p>
+              <p className='details-right__feature'>
+                Cámara Secundaria: {mobileData.secondaryCmera}
+              </p>
+              <p className='details-right__feature'>
+                Tamaño: {mobileData.dimentions}
+              </p>
+              <p className='details-right__feature'>
+                Peso: {mobileData.weight} g
+              </p>
             </div>
 
-            <p className='details-right__price'> PRECIO:{mobileData.price} €</p>
-            <p className='details-right__feature'> CPU: {mobileData.cpu}</p>
-            <p className='details-right__feature'> RAM: {mobileData.ram}</p>
-            <p className='details-right__feature'> OS: {mobileData.os}</p>
-            <p className='details-right__feature'>
-              Resolución: {mobileData.displayResolution}
-            </p>
-            <p className='details-right__feature'>
-              Batería: {mobileData.battery}
-            </p>
-            <p className='details-right__feature'>
-              Cámara Principal: {mobileData.primaryCamera[0]}
-            </p>
-            <p className='details-right__feature'>
-              Cámara Secundaria: {mobileData.secondaryCmera}
-            </p>
-            <p className='details-right__feature'>
-              Tamaño: {mobileData.dimentions}
-            </p>
-            <p className='details-right__feature'>
-              Peso: {mobileData.weight} g
-            </p>
-
             <div className='actions'>
-              <h1>ACCIONES</h1>
               <div className='actions__colors-box'>
-                {mobileData.options.colors.map(item => (
+                {mobileData.options.colors.map((item, index) => (
                   <div
                     onClick={() => handleColor(item.code)}
                     key={item.code}
-                    className='actions__color-option'
+                    className={
+                      userColor === index + 1
+                        ? 'actions__color-option isSelected'
+                        : 'actions__color-option'
+                    }
                   >
                     {item.name}
                   </div>
                 ))}
               </div>
               <div className='actions__storage-box'>
-                {mobileData.options.storages.map(item => (
+                {mobileData.options.storages.map((item,index) => (
                   <div
                     onClick={() => handleStorage(item.code)}
                     key={item.code}
-                    className='actions__storage-option'
+                    className={
+                      userStorage === index + 1
+                        ? 'actions__color-option isSelected'
+                        : 'actions__color-option'
+                    }
                   >
                     {item.name}
                   </div>
                 ))}
               </div>
-              <Link to={`/`}>
-                <button className='details-right__button-back'>VOLVER</button>
-              </Link>
-              <button onClick={addItems}>AÑADIR AL CARRO</button>
+              <div className='actions__buttons-box'>
+                <Link to={`/`}>
+                  <button className='actions__button'>VOLVER</button>
+                </Link>
+                <button className='actions__button' onClick={addItems}>
+                  AÑADIR AL CARRO
+                </button>
+              </div>
             </div>
           </div>
         </div>
