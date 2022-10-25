@@ -11,9 +11,7 @@ export default function DetailsView(props) {
   const [userColor, setUserColor] = useState(1);
   const [userStorage, setUserStorage] = useState(1);
 
-
   function handleColor(code) {
-   
     if (code === 1000) {
       setUserColor(1);
     }
@@ -153,7 +151,7 @@ export default function DetailsView(props) {
                 ))}
               </div>
               <div className='actions__storage-box'>
-                {mobileData.options.storages.map((item,index) => (
+                {mobileData.options.storages.map((item, index) => (
                   <div
                     onClick={() => handleStorage(item.code)}
                     key={item.code}

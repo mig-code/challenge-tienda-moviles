@@ -13,11 +13,10 @@ export default function Header() {
         <Link to='/'>
           <h1 className='header__title'>Mobile Shop</h1>
         </Link>
-        <Link to='/'>
-          <p className='header__breadcumbs'>
-            Inicio <span> {breadcumbName}</span>{' '}
-          </p>
-        </Link>
+
+        <p className='header__breadcumbs'>
+          <Link to='/'>Inicio</Link> <span> {breadcumbName}</span>{' '}
+        </p>
       </div>
       <div className='header__right'>
         <img className='header__cart' src={cart} alt='' />
