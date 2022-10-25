@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import '../styles/ProductDetails.scss';
+import PageNotFound from './PageNotFound';
 
 export default function DetailsView(props) {
   const { mobileId } = useParams();
@@ -37,9 +38,15 @@ export default function DetailsView(props) {
     fetch(`https://front-test-api.herokuapp.com/api/product/${mobileId}`)
       .then(response => response.json())
       .then(data => {
+       
         console.log(data);
+        console.log(typeof(data));
         setMobileData(data);
         setBreadcumbName(' - ' + data.model);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        console.log("HERE")
       });
   }
 
@@ -49,9 +56,9 @@ export default function DetailsView(props) {
 
   return (
     <>
-      {!mobileData ? (
+      {(!mobileData || mobileData.message ) ? (
         <div className='details-container'>
-          <h1>LOADING</h1>
+          {mobileData && <PageNotFound/>}
         </div>
       ) : (
         <div className='details-container'>
