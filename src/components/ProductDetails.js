@@ -10,7 +10,7 @@ export default function DetailsView(props) {
   const { cartCount, setCartCount, setBreadcumbName } = useContext(AppContext);
   const [userColor, setUserColor] = useState(1);
   const [userStorage, setUserStorage] = useState(1);
-  const [isSelected, setIsSelected] = useState(true);
+
 
   function handleColor(code) {
    
