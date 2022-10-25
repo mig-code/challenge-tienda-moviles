@@ -2,7 +2,6 @@ import './styles/App.scss';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetails';
-import PageNotFound from './components/PageNotFound';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 
