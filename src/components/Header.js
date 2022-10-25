@@ -5,7 +5,7 @@ import cart from '../assets/cart.svg';
 import { AppContext } from '../context/AppContext';
 
 export default function Header() {
-    const { cartCount } = React.useContext(AppContext);
+  const { cartCount, breadcumbName } = React.useContext(AppContext);
   return (
     <div className='header'>
       <div className='header__left'>
@@ -13,12 +13,16 @@ export default function Header() {
           <h1 className='header__title'>Mobile Shop</h1>
         </Link>
         <Link to='/'>
-          <p className='header__breadcumbs'>Inicio - </p>
+          <p className='header__breadcumbs'>
+            Inicio <span> {breadcumbName}</span>{' '}
+          </p>
         </Link>
       </div>
       <div className='header__right'>
         <img className='header__cart' src={cart} alt='' />
-        <p className='header__cart-count'>{cartCount}</p>
+        {cartCount > 0 ? (
+          <p className='header__cart-count'>{cartCount}</p>
+        ) : null}
       </div>
     </div>
   );

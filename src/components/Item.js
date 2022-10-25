@@ -5,7 +5,7 @@ import '../styles/Item.scss';
 export default function Item(props) {
   const { product } = props;
   return (
-    <Link to={`/details/`}>
+    <Link to={`/details/${product.id}`}>
       <div className='mobile-box'>
         <div>
           <img
