@@ -12,33 +12,11 @@ export default function DetailsView(props) {
   const [userStorage, setUserStorage] = useState(1);
 
   function handleColor(code) {
-    if (code === 1000) {
-      setUserColor(1);
-    }
-    if (code === 1001) {
-      setUserColor(2);
-    }
-    if (code === 1002) {
-      setUserColor(3);
-    }
-    if (code === 1003) {
-      setUserColor(4);
-    }
-    console.log(userColor);
+    
+    setUserColor(Number(String(code).slice(-1)) + 1);
   }
   function handleStorage(code) {
-    if (code === 2000) {
-      setUserStorage(1);
-    }
-    if (code === 2001) {
-      setUserStorage(2);
-    }
-    if (code === 2002) {
-      setUserStorage(3);
-    }
-    if (code === 2003) {
-      setUserStorage(4);
-    }
+  setUserStorage(Number(String(code).slice(-1)) + 1);
   }
 
   const addItems = async () => {

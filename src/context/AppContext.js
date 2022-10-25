@@ -8,7 +8,9 @@ const AppProvider = props => {
   const [cartCount, setCartCount] = useState(0);
   const [mobilesData, setMobilesData] = useState([]);
   const [breadcumbName, setBreadcumbName] = useState('');
-  const [startCacheTime, setStartCacheTime] = useState(Date.now());
+  const [startCacheTime, setStartCacheTime] = useState(
+    localStorage.getItem('Start Cache Time')
+  );
   const [dataIsinCache, setDataIsinCache] = useState(false);
 
   function getMobilesData() {
@@ -18,6 +20,7 @@ const AppProvider = props => {
         .then(data => {
           localStorage.setItem('Mobiles Data', JSON.stringify(data));
           setMobilesData(JSON.parse(localStorage.getItem('Mobiles Data')));
+          localStorage.setItem('Start Cache Time', startCacheTime);
           setDataIsinCache(true);
         })
         .catch(error => {
@@ -27,12 +30,17 @@ const AppProvider = props => {
   }
 
   if ((Date.now() - startCacheTime) / 1000 > 3600) {
+    localStorage.setItem('Start Cache Time', startCacheTime);
     setStartCacheTime(Date.now());
     setDataIsinCache(false);
   }
 
   useEffect(() => {
-    getMobilesData();
+    if (localStorage.getItem('Mobiles Data')) {
+      setMobilesData(JSON.parse(localStorage.getItem('Mobiles Data')));
+    } else {
+      getMobilesData();
+    }
   }, [dataIsinCache]);
 
   return (
