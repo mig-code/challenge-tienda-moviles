@@ -12,6 +12,20 @@
 
     
 }
+
+
+.actions__color-option, .actions__storage-option{
+    cursor: pointer;
+    background-color:variables.$secondary-color; ;
+    border: solid 1px variables.$secondary-color;
+    color:variables.$color-white;
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+
+
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
