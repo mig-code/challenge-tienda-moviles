@@ -1,12 +1,16 @@
 # TECHNICAL CHALLENGE
 
-Esta prueba consiste en la creación de una mini-aplicación para comprar dispositivos moviles.
+## Problema a resolver  📑
 
-### Current deploy
+ Prueba técnica que consiste en la creación de una mini-aplicación para comprar dispositivos moviles.
 
+![Imagen del proyecto](https://i.postimg.cc/yYFT4wzh/screenshot-desktop-details.jpg)
+
+#### Enlace a mi solución 🔗
 https://tienda-moviles.netlify.app/
 
-#### La aplicación tendrá únicamente dos vistas:
+### Descripción de la prueba
+La aplicación tendrá únicamente dos vistas:
 
     1. Vista principal - Listado de productos
 
@@ -25,61 +29,46 @@ https://tienda-moviles.netlify.app/
 
 #### El proyecto tendrá que contener los siguiente script, para poder gestionar la aplicación:
 
-1. START - Modo desarrollo
-2. BUILD - Compilación para modo Producción
-3. TEST - Lanzamiento de test
-4. LINT - Comprobación de código
+    . START - Modo desarrollo
+    . BUILD - Compilación para modo Producción
+    . TEST - Lanzamiento de test
+    . LINT - Comprobación de código
 
-• El proyecto deberá presentarse en un repositorio de codigo abierto (Github, Gitlab,
+
+- El proyecto deberá presentarse en un repositorio de codigo abierto (Github, Gitlab,
 Bitbucket), con la solución al problema. Se quiere que se pueda subir el codigo de
 manera evolutiva de manera que se vaya alcanzando hitos.
 • En el repositorio hay que incluir un documento README (preferiblemente incluirlo en el
 primer commit), donde se incluirá la explicación para ejecutar el proyecto asi como
 alguna nota explicativas o información adicional que se consideré necesaria
 
+## Cómo la he realizado
+Para la instalacción de React he utilizado: [Create React App](https://github.com/facebook/create-react-app).
+Para el enroutado he utilizado: [React Router Dom](https://reactrouter.com/en/main)
+Para la gestión del estado he utilizado ContextAPI
+Para los estilos: [SASS](https://sass-lang.com/)
+Para el linter  [EsLint](https://eslint.org/)
+
+### ScreenShoots
+![Imagen del proyecto](https://i.postimg.cc/433vcyHw/screenshot-desktop-list.jpg)
+
+![Imagen del proyecto](https://i.postimg.cc/bwgHdkrs/screenshot-mobile.jpg)
 ---
 
-#### Getting Started with Create React App
+#### Instalación
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    clone the repository
+    npm install
+    npm start to run the project on Localhost
 
-##### Available Scripts
 
-In the project directory, you can run:
+## Autor ✒️
+Miguel P.gomez
 
-##### `npm start`
+* [hola@miguelpg.com](hola@miguelpg.com)
+* [LinkedIn](https://www.linkedin.com/in/mig-code//)
+* [Porfolio web](https://miguelpg.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-##### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-##### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-##### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## License
+#### License
 
 MIT
