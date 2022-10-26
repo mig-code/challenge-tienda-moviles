@@ -37,7 +37,7 @@ export default function ProductList() {
               );
             })
             .map(product => (
-              <div key={product.id}>
+              <div className='mobile-box' key={product.id}>
                 <Item product={product} />
               </div>
             ))}

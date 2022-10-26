@@ -1,124 +1,171 @@
 @use 'variables';
 
+@use 'mixin';
+
 .details-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 4rem;
-    margin: 1rem 0;
-    padding: 1rem;
-    animation: fadeInAnimation ease 0.5s;
-    font-size: 0.8rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 1rem;
+  margin: 0 1rem;
+  animation: fadeInAnimation ease 0.5s;
+  font-size: 0.8rem;
+  background-color: variables.$color-white-background;
+  @include mixin.boxShadows;
 }
-
+.details-left {
+  background-color: variables.$color-white;
+  border-radius: 10px;
+  @include mixin.boxShadows;
+}
 .details-left__image {
-    padding: 1rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    min-width: 250px;
+  padding: 1rem;
+  min-width: 250px;
+  margin-bottom: 1rem;
 }
-
+.details-left__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 .details-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    width: 450px;
+  background-color: variables.$color-white-background;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  width: 450px;
 
-    &__properties-box {
-        padding: 1rem;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-        margin: 0 0 1rem 0;
-        width: 100%;
-    }
+  &__properties-box {
+    background-color: variables.$color-white;
+    padding: 1rem;
+    @include mixin.boxShadows;
+    margin: 0 0 1rem 0;
+    width: 100%;
+  }
+  &__model {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: variables.$secondary-color;
+    margin-bottom: 0.5rem;
+  }
+  &__feature {
+    font-size: 0.8rem;
+    
+    font-weight: bold;
+  }
+
+  &--textmodifier {
+    font-size: 0.8rem;
+    color: variables.$color-gray;
+    margin-left: 0.5rem;
+    font-weight: 400;
+  }
 }
 
 .actions {
-    padding: 1rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background-color: variables.$color-white;
+  @include mixin.boxShadows;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__colors-box,
+  &__storage-box {
     display: flex;
-    flex-direction: column;
-    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    @include mixin.boxShadows;
+  }
 
-    &__colors-box,
-    &__storage-box {
+  &__color-option,
+  &__storage-option {
+    cursor: pointer;
+    background-color: variables.$color-white;
+    border: solid 1px variables.$secondary-color;
+    color: variables.$secondary-color;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
 
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        font-size: 0.8rem;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    }
+  &__buttons-box {
+    margin-top: 1rem;
+  }
 
-    &__color-option,
-    &__storage-option {
-        cursor: pointer;
-        background-color: variables.$color-white;
-        border: solid 1px variables.$secondary-color;
-        color: variables.$secondary-color;
-        margin: 0.5rem;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-    }
-
-    &__buttons-box {
-        margin-top: 1rem;
-    }
-
-    &__button {
-        cursor: pointer;
-        background-color: variables.$color-white;
-        border: solid 1px variables.$secondary-color;
-        color: variables.$secondary-color;
-        margin: 0.5rem;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-    }
-
-    &__button:hover {
-        background-color: variables.$secondary-color;
-        color: variables.$color-white;
-        border: solid 1px variables.$secondary-color;
-    }
-
-}
-.isSelected{
+  &__button {
+    cursor: pointer;
+    background-color: variables.$color-white;
+    border: solid 1px variables.$secondary-color;
+    color: variables.$secondary-color;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  &__button:hover {
     background-color: variables.$secondary-color;
     color: variables.$color-white;
     border: solid 1px variables.$secondary-color;
+  }
+  &__button--add {
+    background-color: variables.$primary-color;
+    color: variables.$color-white;
+    border: solid 1px variables.$primary-color;
+    font-weight: 600;
+  }
+  &__button--add:hover {
+    background-color: variables.$color-white;
+    color: variables.$primary-color;
+    border: solid 1px variables.$primary-color;
+  }
+  &__button--back {
+    background-color: variables.$color-gray;
+    color: variables.$color-white;
+    border: solid 1px variables.$color-gray;
+    font-weight: 600;
+  }
+  &__button--back:hover {
+    background-color: variables.$color-white;
+    color: variables.$color-gray;
+    border: solid 1px variables.$color-gray;
+  }
+}
+.isSelected {
+  background-color: variables.$secondary-color;
+  color: variables.$color-white;
+  border: solid 1px variables.$secondary-color;
 }
 
-
-
-
 @keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .details-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-    }
-    .details-left__image {
-       max-width: 150px;
-       height: auto;
-       margin-bottom: 1rem;
-        
-    }
+  .details-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .details-left__image {
+    max-width: 150px;
+    height: auto;
+  }
 
-    .details-right {
-        width: auto;
-    }
-
+  .details-right {
+    width: auto;
+    margin-top: 1rem;
+  }
 }

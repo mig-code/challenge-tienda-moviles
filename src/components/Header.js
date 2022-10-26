@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.scss';
-import cart from '../assets/cart.svg';
 import { AppContext } from '../context/AppContext';
 
 export default function Header() {
@@ -19,9 +18,8 @@ export default function Header() {
         </p>
       </div>
       <div className='header__right'>
-        <img className='header__cart' src={cart} alt='' />
         {cartCount > 0 ? (
-          <p className='header__cart-count'>{cartCount}</p>
+          <p className='header__cart-count'> Total: {cartCount}</p>
         ) : null}
       </div>
     </div>

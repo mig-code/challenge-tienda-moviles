@@ -1,27 +1,33 @@
 @use 'variables';
+@use 'mixin';
 
 .header {
-  background-color: white;
-  color: variables.$color-black;
-
+  background-color: variables.$secondary-color;
+  color: variables.$color-white;
   text-align: left;
   border-bottom: 1px solid variables.$color-black;
-  margin: 1rem 0 0.5rem 0;
+  margin: 1rem 0.5rem 0.5rem 0.5rem;
   padding: 0.5rem;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  @include mixin.boxShadows;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  gap: 1rem;
+  padding: 0.3rem 1rem;
+  margin-bottom: 1rem;
+  a {
+    color: variables.$color-white;
+    text-decoration: none;
+  }
 
   &__title {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
-    color: variables.$secondary-color;
+    color: variables.$color-white;
   }
   &__breadcumbs {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    color: variables.$color-white;
   }
 
   &__right {
@@ -31,14 +37,19 @@
     margin-right: 1rem;
   }
 
-  &__cart {
-    height: 1rem;
-    width: 1rem;
-    margin-top: 0.5rem;
-  }
   &__cart-count {
-    font-size: 1.5rem;
-    color: variables.$secondary-color;
+    font-size: 1rem;
+    color: variables.$primary-color;
     margin-left: 0.5rem;
+    background-color: variables.$color-white-background;
+    padding: 0.3rem 0.5rem;
+    font-weight: bold;
+    @include mixin.boxShadows;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .header__cart-count {
+    font-size: 0.8rem;
   }
 }

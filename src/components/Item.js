@@ -6,7 +6,7 @@ export default function Item(props) {
   const { product } = props;
   return (
     <Link to={`/details/${product.id}`}>
-      <div className='mobile-box'>
+      <>
         <div>
           <img
             className='mobile-box__image'
@@ -20,7 +20,7 @@ export default function Item(props) {
           <p className='mobile-box__model'> {product.model}</p>
         </div>
         <p className='mobile-box__price'>{product.price} €</p>
-      </div>
+      </>
     </Link>
   );
 }
