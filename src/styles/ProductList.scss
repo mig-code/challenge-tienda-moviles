@@ -1,4 +1,5 @@
 @use 'variables';
+@use 'mixin';
 
 .search-container {
   display: flex;
@@ -19,14 +20,12 @@
   padding: 0.3rem 0.5rem;
   color: variables.$color-black;
   text-align: right;
-  max-width: 50%;
+  min-width: 40%;
   align-self: flex-end;
   margin: 0.5rem 0.5rem 0.5rem 0;
-  padding-right: 2rem;
+  padding-right: 5%;
   border: solid 1px variables.$color-black;
-  border-radius: 0.5rem;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  @include mixin.boxShadows;
   background: url(../assets/Search.png);
   background-repeat: no-repeat;
   background-size: 1rem;
@@ -34,20 +33,17 @@
 }
 
 .search-placeholder:focus {
-  background:none;
+  background: none;
 }
 
 .search-grid {
   display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   justify-items: center;
-
   margin: 0.5rem;
   padding: 0;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-
+  @include mixin.boxShadows;
+  background-color: variables.$color-white-background;
   animation: fadeInAnimation ease 1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
