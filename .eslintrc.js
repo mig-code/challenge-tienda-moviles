@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    'jest/globals': true,
   },
   settings: {
     react: {
@@ -11,6 +12,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
+    'plugin:jest/recommended',
     'standard',
     'eslint-config-prettier',
   ],
