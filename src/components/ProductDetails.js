@@ -45,7 +45,8 @@ export default function DetailsView(props) {
   };
 
   function getMobileDetails() {
-    fetch(`https://front-test-api.herokuapp.com/api/product/${mobileId}`)
+   
+    fetch(process.env.REACT_APP_API_PRODUCTS_DETAILS + mobileId)
       .then(response => response.json())
       .then(data => {
         console.log(data);
