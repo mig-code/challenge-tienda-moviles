@@ -1,5 +1,6 @@
 @use 'variables';
 @use 'mixin';
+@include mixin.keyframeFadeInAnimation;
 
 .search-container {
   display: flex;
@@ -45,18 +46,8 @@
   @include mixin.boxShadows;
   background-color: variables.$color-white-background;
   animation: fadeInAnimation ease 1s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
 }
 
-@keyframes fadeInAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 @media screen and (max-width: 768px) {
   .search-grid {
     grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
