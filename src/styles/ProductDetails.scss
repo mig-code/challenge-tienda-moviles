@@ -1,5 +1,4 @@
 @use 'variables';
-
 @use 'mixin';
 
 .details-container {
@@ -143,15 +142,7 @@
   border: solid 1px variables.$secondary-color;
 }
 
-@keyframes fadeInAnimation {
-  0% {
-    opacity: 0;
-  }
 
-  100% {
-    opacity: 1;
-  }
-}
 
 @media screen and (max-width: 768px) {
   .details-container {
