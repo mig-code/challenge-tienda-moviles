@@ -4,6 +4,7 @@ export const AppContext = createContext();
 
 const AppProvider = props => {
   console.log('LOAD PROVIDER');
+   console.log(process.env.REACT_APP_API_URL);
 
   const [cartCount, setCartCount] = useState(0);
   const [mobilesData, setMobilesData] = useState([]);
@@ -15,7 +16,8 @@ const AppProvider = props => {
 
   function getMobilesData() {
     if (!dataIsinCache) {
-      fetch('https://front-test-api.herokuapp.com/api/product')
+     
+      fetch(process.env.REACT_APP_API_URL)
         .then(response => response.json())
         .then(data => {
           localStorage.setItem('Mobiles Data', JSON.stringify(data));
